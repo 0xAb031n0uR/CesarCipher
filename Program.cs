@@ -50,7 +50,6 @@ public class HelloWorld
     }
     public static void Main(string[] args)
     {
-        //Console.WriteLine (Analyse("THEQUICKBROWNFOXJUMPSOVERTHELAZYDOG" ,"WKHTXLFNEURZQIRAMXPSVRYHUWKHODCBGRJ" ));
         bool flag = true;
         do
         {
