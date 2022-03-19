@@ -41,13 +41,14 @@ public class HelloWorld
     }
     public static int Analyse(string plainText, string cipherText)
     {
+        char[] alphabet = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
         plainText = plainText.ToLower();
-            cipherText = cipherText.ToLower();
-            int plainAscii = (int)plainText[0];
-            int cipherAcii = (int)cipherText[0];
-            if (cipherAcii - plainAscii < 0)
-                return 26 + (cipherAcii - plainAscii);
-            return cipherAcii - plainAscii;
+        cipherText = cipherText.ToLower();
+        int p = Array.IndexOf(alphabet, plainText[0]);
+        int c = Array.IndexOf(alphabet, cipherText[0]);
+        if (c - p < 0)
+            return 26 + (c - p);
+        return c - p;
 
     }
     public static void Main(string[] args)
@@ -66,7 +67,9 @@ public class HelloWorld
                 Console.Write("Enter message you want to encrypt : ");
                 string Message = Console.ReadLine();
                 Console.Write("Enter The Key : ");
-                int key = Console.Read();
+                string val = Console.ReadLine();
+                int key = Convert.ToInt32(val); // No checking if the input is number or not 
+                Console.WriteLine(key);
                 Console.WriteLine("Your Cipher Text is : {0}", Encrypt(Message, key));
             }
             else if (Choice == "2")
@@ -74,7 +77,9 @@ public class HelloWorld
                 Console.WriteLine("Enter message you want to Decrypt : ");
                 string Message = Console.ReadLine();
                 Console.WriteLine("Enter The Key : ");
-                int key = Console.Read();
+                string val = Console.ReadLine();
+                int key = Convert.ToInt32(val); // No checking if the input is number or not 
+                Console.WriteLine(key);
                 Console.WriteLine("Your Plain Text is : {0}", Decrypt(Message, key));
             }
             else if (Choice == "3")
@@ -92,10 +97,10 @@ public class HelloWorld
             Console.Write("Do you wnat to run program again Y/N : ");
             string x;
             x = Console.ReadLine();
-            x = Console.ReadLine();
             if (x == "N" || x == "n")
-                flag = false ;
+                flag = false;
         } while (flag == true);
-       
+
+
     }
 }
