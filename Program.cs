@@ -41,11 +41,13 @@ public class HelloWorld
     }
     public static int Analyse(string plainText, string cipherText)
     {
-        int p = (int)plainText[0];
-        int c = (int)cipherText[0];
-        if (c - p < 0)
-            return 26 + (c - p);
-        return c - p;
+        plainText = plainText.ToLower();
+            cipherText = cipherText.ToLower();
+            int plainAscii = (int)plainText[0];
+            int cipherAcii = (int)cipherText[0];
+            if (cipherAcii - plainAscii < 0)
+                return 26 + (cipherAcii - plainAscii);
+            return cipherAcii - plainAscii;
 
     }
     public static void Main(string[] args)
